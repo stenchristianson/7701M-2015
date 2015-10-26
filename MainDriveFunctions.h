@@ -14,7 +14,7 @@ void setDriveSpeeds (int lf, int rf, int lr, int rr, unsigned int time = 0) {
 	}
 }
 
-void tank4 () {
+void driveTank () {
 	int left = vexRT[Ch3];
 	int right = vexRT[Ch2];
 
