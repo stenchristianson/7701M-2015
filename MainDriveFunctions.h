@@ -7,6 +7,16 @@ void setDriveSpeeds (int lf, int rf, int lr, int rr, unsigned int time = 0) {
 	if (time > 0) {
 		wait1Msec (time);
 
-		setDriveSpeeds (0,0,0,0);
+		motor[driveLeftFront] = 0;
+		motor[driveLeftRear] = 0;
+		motor[driveRightFront] = 0;
+		motor[driveRightRear] = 0;
 	}
+}
+
+void tank4 () {
+	int left = vexRT[Ch3];
+	int right = vexRT[Ch2];
+
+	setDriveSpeeds (left, right, left, right);
 }
