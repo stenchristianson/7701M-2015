@@ -104,3 +104,9 @@ void driveDistanceTile (float tiles, int tol = 50, float speed = 1) {
 	int ticks = tiles * TICKS_PER_TILE;
 	driveDistanceTick (ticks, ticks, tol, speed);
 }
+
+void rotateTick (int ticks, signed int direction, int tol = 50, float speed = 1) {
+	int leftTick = ticks * direction;
+	int rightTick = ticks * direction * -1;
+	driveDistanceTick (leftTick, rightTick, tol, speed);
+}
