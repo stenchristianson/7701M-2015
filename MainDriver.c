@@ -22,6 +22,7 @@
 //Includes
 #include "Vex_Competition_Includes.c"
 #include "MainDriveFunctions.h"
+#include <MainElevationFunctions.h>
 
 void pre_auton () {
 
