@@ -1,3 +1,7 @@
+//Definitions
+#define TICKS_PER_INCH 100
+#define TICKS_PER_TILE (TICKS_PER_INCH * 24)
+
 void setDriveSpeeds (int lf, int rf, int lr, int rr, unsigned int time = 0) {
 	motor[driveLeftFront] = lf;
 	motor[driveLeftRear] = lr;
@@ -88,4 +92,15 @@ void driveDistanceTick (int leftTick, int rightTick, int tol = 50, float speed =
 			//Loop breaks when they both reach the target
 		}
 	}
+}
+
+void driveDistanceInch (float leftInch, float rightInch, int tol = 50, float speed = 1) {
+	int leftTick = leftInch * TICKS_PER_INCH;
+	int rightTick = rightInch * TICKS_PER_INCH;
+	driveDistanceTick (leftTick, rightTick, tol, speed);
+}
+
+void driveDistanceTile (float tiles, int tol = 50, float speed = 1) {
+	int ticks = tiles * TICKS_PER_TILE;
+	driveDistanceTick (ticks, ticks, tol, speed);
 }
