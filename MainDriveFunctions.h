@@ -1,6 +1,7 @@
 //Definitions
 #define TICKS_PER_INCH 100
 #define TICKS_PER_TILE (TICKS_PER_INCH * 24)
+#define TICKS_PER_DEG  10
 
 void setDriveSpeeds (int lf, int rf, int lr, int rr, unsigned int time = 0) {
 	motor[driveLeftFront] = lf;
@@ -109,4 +110,9 @@ void rotateTick (int ticks, signed int direction, int tol = 50, float speed = 1)
 	int leftTick = ticks * direction;
 	int rightTick = ticks * direction * -1;
 	driveDistanceTick (leftTick, rightTick, tol, speed);
+}
+
+void rotateDeg (int deg, signed int direction, int tol = 50, float speed = 1) {
+	int ticks = deg * TICKS_PER_DEG;
+	rotateTick (ticks, direction, tol, speed);
 }
