@@ -63,3 +63,13 @@ void elevLiftMax (float speed = 1) {
 void elevLiftMin (float speed = 1) {
 	elevPot (MIN_ELEV_LEFT, MIN_ELEV_RIGHT, speed);
 }
+
+void elevJoystickControl () {
+	if (vexRT[Btn7U] && !vexRT[Btn7D] && SensorValue[elevLeft] < MAX_ELEV_LEFT && SensorValue[elevRight] < MAX_ELEV_RIGHT) {
+		setElevSpeeds (127, 127);
+	}
+	else if (vexRT[Btn7D] && !vexRT[Btn7U] && SensorValue [elevLeft] > MIN_ELEV_LEFT && SensorValue[elevRight] > MIN_ELEV_RIGHT) {
+		setElevSpeeds (-127, -127);
+	}
+	else setElevSpeeds (0,0);
+}
