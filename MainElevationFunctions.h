@@ -3,7 +3,7 @@
 #define MAX_ELEV_RIGHT 3000
 #define MIN_ELEV_RIGHT 1000
 
-void setElevationSpeeds (int leftSpeed, int rightSpeed, int time = 0) {
+void setElevSpeeds (int leftSpeed, int rightSpeed, int time = 0) {
 	motor[elevLeft] = leftSpeed;
 	motor[elevRight] = rightSpeed;
 
@@ -52,6 +52,6 @@ void elevPot (int leftPot, int rightPot, float speed = 1) {
 			rightOnTarget = true;
 		}
 
-		setElevationSpeeds (leftSpeed, rightSpeed);
+		setElevSpeeds (leftSpeed, rightSpeed);
 	}
 }
