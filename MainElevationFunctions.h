@@ -26,11 +26,11 @@ void elevPot (int leftPot, int rightPot, float speed = 1) {
 	int rightCurr = SensorValue[elevRight];
 
 	while (!leftOnTarget && !rightOnTarget) {
-		if (leftCurr < leftPot) {
+		if ((leftCurr < leftPot && leftCurr < MAX_ELEV_LEFT) || leftCurr < MIN_ELEV_LEFT) {
 			leftSpeed = 127 * speed;
 			leftOnTarget = false;
 		}
-		else if (leftCurr > leftPot) {
+		else if ((leftCurr > leftPot && leftCurr > MIN_ELEV_LEFT) || leftCurr > MAX_ELEV_LEFT) {
 			leftSpeed = -127 * speed;
 			leftOnTarget = false;
 		}
@@ -39,11 +39,11 @@ void elevPot (int leftPot, int rightPot, float speed = 1) {
 			leftOnTarget = true;
 		}
 
-		if (rightCurr < rightPot) {
+		if ((rightCurr < rightPot && rightCurr < MAX_ELEV_RIGHT) || rightCurr < MIN_ELEV_RIGHT) {
 			rightSpeed = 127 * speed;
 			rightOnTarget = false;
 		}
-		else if (rightCurr > rightPot) {
+		else if ((rightCurr > rightPot && rightCurr > MIN_ELEV_RIGHT) || rightCurr > MAX_ELEV_RIGHT) {
 			rightSpeed = -127 * speed;
 			rightOnTarget = false;
 		}
