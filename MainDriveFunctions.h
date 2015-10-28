@@ -116,3 +116,11 @@ void rotateDeg (int deg, signed int direction, int tol = 50, float speed = 1) {
 	int ticks = deg * TICKS_PER_DEG;
 	rotateTick (ticks, direction, tol, speed);
 }
+
+void driveJoystickControl () {
+	motor[driveLeftFront] = vexRT[Ch3];
+	motor[driveLeftRear] = vexRT[Ch3];
+
+	motor[driveRightFront] = vexRT[Ch2];
+	motor[driveRightRear] = vexRT[Ch2];
+}
