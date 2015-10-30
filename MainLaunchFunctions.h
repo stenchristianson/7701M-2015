@@ -51,8 +51,13 @@ task accelFlyWheel () {
 		if (period == 0) EndTimeSlice();
 	}
 
+	StopTask (accelFlyWheel);
 }
 
 void changeFlySpeed (int speed) {
-
+	StopTask(accelFlyWheel);
+	if (!(speed > MOTOR_MAX_VALUE || speed < MOTOR_MIN_VALUE)) {
+		flySpeed = speed;
+		StartTask(accelFlyWheel);
+	}
 }
