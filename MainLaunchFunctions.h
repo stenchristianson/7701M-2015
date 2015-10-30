@@ -9,9 +9,9 @@ void setConveyorSpeeds (signed int speed, int time = 0) {
 	}
 }
 
-void setLaunchSpeeds (signed int speed, int time = 0) {
-	motor[flyLeft] = speed;
-	motor[flyRight] = speed;
+void setLaunchSpeeds (int left, int right, int time = 0) {
+	motor[flyLeft] = left;
+	motor[flyRight] = right;
 
 	if (time > 0) {
 		wait1Msec(time);
@@ -45,6 +45,8 @@ task accelFlyWheel () {
 		//Check right
 		if (currRight > flySpeed && currRight > MOTOR_MIN_VALUE) currRight--;
 		else if (currRight < flySpeed && currRight < MOTOR_MAX_VALUE) currRight++;
+
+		setLaunchSpeeds (currLeft, currRight);
 
 		wait1Msec(period);
 
