@@ -4,6 +4,12 @@
 #define MIN_ELEV_RIGHT 1000
 
 void setElevSpeeds (int leftSpeed, int rightSpeed, int time = 0) {
+	if (abs(leftSpeed) > MOTOR_DEADBAND) motor[elevLeft] = leftSpeed;
+	else motor[elevLeft] = 0;
+
+	if (abs(rightSpeed) > MOTOR_DEADBAND) motor[elevRight] = rightSpeed;
+	else motor[elevRight] = 0;
+
 	motor[elevLeft] = leftSpeed;
 	motor[elevRight] = rightSpeed;
 

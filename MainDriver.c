@@ -19,6 +19,9 @@
 #pragma autonomousDuration(20)
 #pragma userControlDuration(120)
 
+//Definitions
+#define MOTOR_DEADBAND 10
+
 //Includes
 #include "Vex_Competition_Includes.c"
 #include "MainDriveFunctions.h"
