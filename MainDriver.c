@@ -19,10 +19,15 @@
 #pragma autonomousDuration(20)
 #pragma userControlDuration(120)
 
+//Global variable definitions
+int flySpeed = 0; //Speed for the flywheel, used by task accelFlyWheel
+int flyAccel = 10; //Acceleration for the flywheel, used by task accelFlyWheel
+
 //Includes
 #include "Vex_Competition_Includes.c"
 #include "MainDriveFunctions.h"
 #include <MainLaunchFunctions.h>
+
 
 void pre_auton () {
 
