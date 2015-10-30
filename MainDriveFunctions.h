@@ -30,17 +30,18 @@ void driveTank () {
 	setDriveSpeeds (left, right, left, right);
 }
 
-void driveTime (int left = 0, int right = 0, int time = 0) {
-	if      (left >= 1 && right >= 1) setDriveSpeeds ( 127,  127,  127,  127, time);
-	else if (left >= 1 && right == 0) setDriveSpeeds ( 127,  0,    127,  0,   time);
-	else if (left >= 1 && right <= 1) setDriveSpeeds ( 127, -127,  127, -127, time);
-	else if (left == 0 && right >= 1) setDriveSpeeds ( 0,    127,  0,    127, time);
-	else if (left == 0 && right == 0) setDriveSpeeds ( 0,    0,    0,    0,   time);
-	else if (left == 0 && right <= 0) setDriveSpeeds ( 0,   -127,  0,   -127, time);
-	else if (left <= 1 && right >= 1) setDriveSpeeds (-127,  127, -127,  127, time);
-	else if (left <= 1 && right == 0) setDriveSpeeds (-127,  0,   -127,  0,   time);
-	else if (left <= 1 && right <= 1) setDriveSpeeds (-127, -127, -127, -127, time);
-}
+////Probably will only use this for autonomus, commenting out to save space and download time
+//void driveTime (int left = 0, int right = 0, int time = 0) {
+//	if      (left >= 1 && right >= 1) setDriveSpeeds ( 127,  127,  127,  127, time);
+//	else if (left >= 1 && right == 0) setDriveSpeeds ( 127,  0,    127,  0,   time);
+//	else if (left >= 1 && right <= 1) setDriveSpeeds ( 127, -127,  127, -127, time);
+//	else if (left == 0 && right >= 1) setDriveSpeeds ( 0,    127,  0,    127, time);
+//	else if (left == 0 && right == 0) setDriveSpeeds ( 0,    0,    0,    0,   time);
+//	else if (left == 0 && right <= 0) setDriveSpeeds ( 0,   -127,  0,   -127, time);
+//	else if (left <= 1 && right >= 1) setDriveSpeeds (-127,  127, -127,  127, time);
+//	else if (left <= 1 && right == 0) setDriveSpeeds (-127,  0,   -127,  0,   time);
+//	else if (left <= 1 && right <= 1) setDriveSpeeds (-127, -127, -127, -127, time);
+//}
 
 void driveDistanceTick (int leftTick, int rightTick, int tol = 50, float speed = 1) {
 	nMotorEncoder[driveLeftRear] = 0;
@@ -119,12 +120,4 @@ void rotateTick (int ticks, signed int direction, int tol = 50, float speed = 1)
 void rotateDeg (int deg, signed int direction, int tol = 50, float speed = 1) {
 	int ticks = deg * TICKS_PER_DEG;
 	rotateTick (ticks, direction, tol, speed);
-}
-
-void driveJoystickControl () {
-	motor[driveLeftFront] = vexRT[Ch3];
-	motor[driveLeftRear] = vexRT[Ch3];
-
-	motor[driveRightFront] = vexRT[Ch2];
-	motor[driveRightRear] = vexRT[Ch2];
 }
