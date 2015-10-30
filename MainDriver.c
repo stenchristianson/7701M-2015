@@ -21,7 +21,7 @@
 
 //Global variable definitions
 int flySpeed = 0; //Speed for the flywheel, used by task accelFlyWheel
-int flyAccel = 10; //Acceleration for the flywheel, used by task accelFlyWheel
+int flyAccel = 10; //Acceleration for the flywheel, used by task accelFlyWheel, in [MotorUnits]/s/s
 
 //Includes
 #include "Vex_Competition_Includes.c"

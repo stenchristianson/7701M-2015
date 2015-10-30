@@ -24,10 +24,9 @@ void setLaunchSpeeds (int left, int right, int time = 0) {
 //Definitions
 #define MOTOR_MAX_VALUE 127
 #define MOTOR_MIN_VALUE (-127)
-#define FLY_ACCEL 10//In [motor units]/s/s
 
 //Support function for accelFlyWheel, rounds a float to the nearest whole number
-int round (float f) {
+int fRound (float f) {
 	return (f > 0) ? (int)(f + 0.5) : (int) (f - 0.5);
 }
 
@@ -35,7 +34,7 @@ task accelFlyWheel () {
 	int currLeft = motor[flyLeft];
 	int currRight = motor[flyRight];
 
-	int period = round (1000 / FLY_ACCEL);
+	int period = fRound (1000 / flyAccel);
 
 	while (currLeft != flySpeed || currRight != flySpeed) {
 		// Check left
