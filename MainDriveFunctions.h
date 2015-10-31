@@ -60,7 +60,7 @@ void driveDistanceTick (int leftTick, int rightTick, int tol = 50, float speed =
 		int rightSpeed;
 
 		while (!leftOnTarget && !rightOnTarget) {
-			//'Alias' variables
+			//'Alias' variables so we don't keep accessing the memory
 			leftSpeed = nMotorEncoder[driveLeftFront];
 			rightSpeed = nMotorEncoder[driveRightFront];
 

@@ -36,5 +36,9 @@ task autonomous () {
 }
 
 task usercontrol () {
+	while (true) {
+		driveTank();
+	}
 
+	wait1Msec(50);
 }
