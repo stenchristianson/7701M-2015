@@ -21,7 +21,7 @@
 
 //Includes
 #include "Vex_Competition_Includes.c"
-#include "MainDriveFunctions.h"
+#include "Drive Control.c"
 
 void pre_auton () {
 
@@ -32,5 +32,7 @@ task autonomous () {
 }
 
 task usercontrol () {
-
+	while (true) {
+		driveTank();
+	}
 }
