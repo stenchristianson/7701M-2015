@@ -4,7 +4,7 @@
 #pragma config(Sensor, dgtl3,  driveRight,     sensorQuadEncoder)
 #pragma config(Motor,  port1,           flyLeft,       tmotorVex393HighSpeed, openLoop)
 #pragma config(Motor,  port2,           elevLeft,      tmotorVex393, openLoop)
-#pragma config(Motor,  port3,           elevRight,     tmotorVex393, openLoop)
+#pragma config(Motor,  port3,           elevRight,     tmotorVex393, openLoop, reversed)
 #pragma config(Motor,  port4,           driveLeftFront, tmotorVex393HighSpeed, openLoop, reversed, encoder, encoderPort, dgtl1, 1000)
 #pragma config(Motor,  port5,           driveRightFront, tmotorVex393HighSpeed, openLoop, reversed, encoder, encoderPort, dgtl3, 1000)
 #pragma config(Motor,  port6,           driveLeftRear, tmotorVex393HighSpeed, openLoop, encoder, encoderPort, dgtl1, 1000)
@@ -37,5 +37,7 @@ task autonomous () {
 task usercontrol () {
 	while (true) {
 		driveTank();
+		elevJoystickControl();
+		wait1Msec(50);
 	}
 }
