@@ -27,6 +27,11 @@ void driveTank () {
 	int left = vexRT[Ch3];
 	int right = vexRT[Ch2];
 
+	if (vexRT[Btn6U] && vexRT[Btn6D] && vexRT[Btn5U] && vexRT[Btn5D]) {
+		left /= 4;
+		right /= 4;
+	}
+
 	setDriveSpeeds (left, right, left, right);
 }
 
